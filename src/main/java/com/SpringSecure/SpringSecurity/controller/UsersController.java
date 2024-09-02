@@ -18,4 +18,12 @@ public class UsersController {
     {
         return usersService.saveUsers(users);
     }
+
+    @PostMapping("/login")
+    public String addLogin(@RequestBody Users users)
+    {
+        System.out.println(users);
+        //return usersService.verify(users);
+        return "Success";
+    }
 }
