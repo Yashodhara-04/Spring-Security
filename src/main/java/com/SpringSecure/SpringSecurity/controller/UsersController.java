@@ -23,7 +23,6 @@ public class UsersController {
     public String addLogin(@RequestBody Users users)
     {
         System.out.println(users);
-        //return usersService.verify(users);
-        return "Success";
+        return usersService.verify(users);
     }
 }

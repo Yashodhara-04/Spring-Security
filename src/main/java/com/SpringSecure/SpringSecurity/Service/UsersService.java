@@ -18,6 +18,8 @@ public class UsersService {
 
     @Autowired
     AuthenticationManager authenticationManager;
+    @Autowired
+    JWTService jwtService;
 
     public Users saveUsers(Users users)
     {
@@ -32,10 +34,8 @@ public class UsersService {
         ));
         if(authentication.isAuthenticated())
         {
-            return "Fail";
+            return jwtService.generateToken(users.getUsername());
         }
-        else {
-            return "Success";
-        }
+        return "Fail";
     }
 }
